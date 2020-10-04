@@ -4,6 +4,7 @@ import { compose } from 'recompose';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { withFirebase } from '../Firebase';
 import Messages from '../Messages';
+import Map from '../Map';
 
 class HomePage extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class HomePage extends Component {
 
     this.state = {
       users: null,
+      markers: []
     };
   }
 
@@ -33,6 +35,7 @@ class HomePage extends Component {
         <p>The Home Page is accessible by every signed in user.</p>
 
         <Messages users={this.state.users} />
+        <Map markers={this.state.markers} />
       </div>
     );
   }
